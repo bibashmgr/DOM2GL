@@ -9,9 +9,6 @@ import Sizes from './utils/sizes.js';
 import Time from './utils/time.js';
 import Resources from './utils/resources.js';
 
-// config
-import assets from './config/assets.js';
-
 // world
 import World from './scenes/world.js';
 
@@ -30,7 +27,7 @@ export default class Experience {
     this.time = new Time();
     this.camera = new Camera();
     this.renderer = new Renderer();
-    this.resources = new Resources(assets);
+    this.resources = new Resources();
 
     this.world = new World();
 

@@ -17,18 +17,16 @@ export default class Plane {
   }
 
   setPlane() {
-    this.geometry = new THREE.PlaneGeometry(10, 10, 100, 100);
+    this.geometry = new THREE.PlaneGeometry(1, 1, 10, 10);
     this.material = new THREE.ShaderMaterial({
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
       uniforms: {},
-      wireframe: false,
+      wireframe: true,
       side: THREE.DoubleSide,
     });
     this.plane = new THREE.Mesh(this.geometry, this.material);
     this.scene.add(this.plane);
-
-    this.plane.rotation.x = Math.PI / 2;
   }
 
   resize() {}
