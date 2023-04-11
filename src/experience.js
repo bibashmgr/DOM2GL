@@ -13,14 +13,16 @@ import Container from './container.js';
 export default class Experience {
   static instance;
 
-  constructor(container) {
+  constructor(canvas, container) {
     if (Experience.instance) {
       return Experience.instance;
     }
 
     Experience.instance = this;
+    this.canvas = canvas;
     this.container = container;
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0xffffff);
     this.sizes = new Sizes();
     this.time = new Time();
     this.camera = new Camera();

@@ -7,9 +7,10 @@ import Experience from './experience.js';
 export default class Camera {
   constructor() {
     this.experience = new Experience();
+    this.canvas = this.experience.canvas;
+    this.container = this.experience.container;
     this.scene = this.experience.scene;
     this.sizes = this.experience.sizes;
-    this.container = this.experience.container;
 
     this.createPerspectiveCamera();
     this.setOrbitControls();
@@ -22,16 +23,13 @@ export default class Camera {
       0.1,
       1000
     );
-    this.perspectiveCamera.position.z = 1250;
+    this.perspectiveCamera.position.z = 100;
 
     this.scene.add(this.perspectiveCamera);
   }
 
   setOrbitControls() {
-    this.orbitControls = new OrbitControls(
-      this.perspectiveCamera,
-      this.container
-    );
+    this.orbitControls = new OrbitControls(this.perspectiveCamera, this.canvas);
     this.orbitControls.enableDamping = true;
     this.orbitControls.enableZoom = true;
     this.orbitControls.enablePan = true;
