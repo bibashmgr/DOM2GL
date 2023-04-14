@@ -29,11 +29,23 @@ export default class Camera {
   }
 
   setOrbitControls() {
-    this.orbitControls = new OrbitControls(this.perspectiveCamera, this.canvas);
-    this.orbitControls.enableDamping = true;
-    this.orbitControls.enableZoom = true;
-    this.orbitControls.enablePan = true;
-    this.orbitControls.target.set(0, 0, 0);
+    // this.orbitControlWebGL = new OrbitControls(
+    //   this.perspectiveCamera,
+    //   this.canvas
+    // );
+    // this.orbitControlWebGL.enableDamping = true;
+    // this.orbitControlWebGL.enableZoom = true;
+    // this.orbitControlWebGL.enablePan = true;
+    // this.orbitControlWebGL.target.set(0, 0, 0);
+
+    this.orbitControlCss3d = new OrbitControls(
+      this.perspectiveCamera,
+      this.container
+    );
+    this.orbitControlCss3d.enableDamping = true;
+    this.orbitControlCss3d.enableZoom = true;
+    this.orbitControlCss3d.enablePan = true;
+    this.orbitControlCss3d.target.set(0, 0, 0);
   }
 
   resize() {
@@ -42,6 +54,7 @@ export default class Camera {
   }
 
   update() {
-    this.orbitControls.update();
+    // this.orbitControlWebGL.update();
+    this.orbitControlCss3d.update();
   }
 }

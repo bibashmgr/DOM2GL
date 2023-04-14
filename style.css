@@ -10,39 +10,12 @@ body {
     font-family: sans-serif;
 }
 
+#experience {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
 #container {
-    background-color: #cfcfcf;
-}
-
-.form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-}
-
-.input-field {
-    outline: none;
-    border: none;
-    padding: 8px;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.submit-btn {
-    font-weight: 500;
-    font-size: 14px;
-    outline: none;
-    border: none;
-    padding: 8px 24px;
-    border-radius: 4px;
-    background-color: #373b4e;
-    color: white;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    opacity: 0.8;
+    background-color: #fff;
 }

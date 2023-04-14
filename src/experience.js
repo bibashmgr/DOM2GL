@@ -19,16 +19,17 @@ export default class Experience {
     }
 
     Experience.instance = this;
-    this.canvas = canvas;
+    // this.canvas = canvas;
     this.container = container;
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(0xffffff);
     this.sizes = new Sizes();
     this.time = new Time();
     this.camera = new Camera();
     this.renderer = new Renderer();
 
     this.container = new Container();
+
+    this.scene.background = new THREE.Color(0xffffff);
 
     this.sizes.on('resize', () => {
       this.resize();
