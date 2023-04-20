@@ -7,7 +7,6 @@
 html,
 body {
     overflow: hidden;
-    font-family: sans-serif;
 }
 
 #experience {
@@ -18,4 +17,66 @@ body {
 
 #container {
     background-color: #fff;
+}
+
+.wrapper {
+    background-color: #000;
+    width: 100%;
+    position: absolute;
+    top: -200vh;
+}
+
+.navbar {
+    height: 10vh;
+    width: 100%;
+    padding: 0px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-btn {
+    color: red;
+}
+
+.hero-section {
+    width: 100%;
+    padding: 0px 50px;
+    height: calc(100vh - 10vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section-header {
+    color: white;
+    width: 50%;
+    font-size: 48px;
+    font-weight: 600;
+    text-align: center;  
+}
+
+.about-section, .project-section, .contact-section, .footer-section {
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 600;
+    border-top: 1px solid #fff;
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 0px 25px;
+        display: flex;
+    }
+
+    .hero-section-header{
+        padding: 0px 25px;
+        width: 100%;
+        font-size: 32px;
+    }
 }
