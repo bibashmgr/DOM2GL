@@ -6,10 +6,12 @@ import Experience from './experience';
 export default class Container {
   constructor() {
     this.experience = new Experience();
+    this.sizes = this.experience.sizes;
+    this.mouse = this.experience.mouse;
     this.scene = this.experience.scene;
 
     // this.createPlane();
-    this.createElement();
+    this.setDomElement();
   }
 
   // createPlane() {
@@ -24,16 +26,84 @@ export default class Container {
   //   this.plane.position.z = -5;
   // }
 
-  createElement() {
-    let element = document.createElement('div');
-    element.className = 'container';
-    element.innerHTML = 'HELLO';
+  setDomElement() {
+    this.domElement = document.createElement('div');
+    this.domElement.className = 'wrapper';
 
-    let obj = new CSS3DObject(element);
-    this.scene.add(obj);
+    let nav = this.createElement('nav', 'navbar', this.domElement);
+    let navLogo = this.createElement('img', 'navbar-logo', nav);
+    navLogo.src = '/vite.svg';
+
+    let navBtn = this.createElement('img', 'navbar-btn', nav);
+    navBtn.src = '/menu.svg';
+
+    let heroSection = this.createElement(
+      'main',
+      'hero-section',
+      this.domElement
+    );
+    let heroHeader = this.createElement(
+      'p',
+      'hero-section-header',
+      heroSection,
+      "Hello! I'm Bibash. I am a Full-Stack Developer & UI/UX Designer."
+    );
+
+    let aboutSection = this.createElement(
+      'section',
+      'about-section',
+      this.domElement,
+      'This is About Section'
+    );
+    let projectSection = this.createElement(
+      'section',
+      'project-section',
+      this.domElement,
+      'This is Project Section'
+    );
+    let contactSection = this.createElement(
+      'section',
+      'contact-section',
+      this.domElement,
+      'This is Contact Section'
+    );
+    let footerSection = this.createElement(
+      'footer',
+      'footer-section',
+      this.domElement,
+      'This is Footer Section'
+    );
+
+    this.cssObj = new CSS3DObject(this.domElement);
+    this.cssObj.position.y = 0;
+
+    this.scene.add(this.cssObj);
+  }
+
+  createElement(type, className, parentElement, content) {
+    let element = document.createElement(type);
+    element.className = className;
+
+    if (content) {
+      element.innerHTML = content;
+    }
+
+    parentElement.appendChild(element);
+    return element;
   }
 
   resize() {}
 
-  update() {}
+  update() {
+    this.mouse.posY += this.mouse.speed;
+    this.mouse.speed *= 0.9;
+    this.mouse.rounded = Math.round(this.mouse.posY);
+
+    let diff = this.mouse.rounded - this.mouse.posY;
+    this.mouse.posY += Math.sign(diff) * Math.pow(Math.abs(diff), 0.25) * 0.008;
+
+    console.log(this.mouse.posY, this.mouse.rounded);
+
+    this.cssObj.position.y = this.mouse.posY * this.sizes.height;
+  }
 }

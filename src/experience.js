@@ -7,6 +7,7 @@ import Renderer from './renderer.js';
 // utils
 import Sizes from './utils/sizes.js';
 import Time from './utils/time.js';
+import Mouse from './utils/mouse.js';
 
 import Container from './container.js';
 
@@ -24,6 +25,7 @@ export default class Experience {
     this.scene = new THREE.Scene();
     this.sizes = new Sizes();
     this.time = new Time();
+    this.mouse = new Mouse();
     this.camera = new Camera();
     this.renderer = new Renderer();
 

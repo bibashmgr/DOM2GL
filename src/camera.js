@@ -23,7 +23,7 @@ export default class Camera {
       0.1,
       1000
     );
-    this.perspectiveCamera.position.z = 100;
+    this.perspectiveCamera.position.z = 1175;
 
     this.scene.add(this.perspectiveCamera);
   }
@@ -43,8 +43,8 @@ export default class Camera {
       this.container
     );
     this.orbitControlCss3d.enableDamping = true;
-    this.orbitControlCss3d.enableZoom = true;
-    this.orbitControlCss3d.enablePan = true;
+    this.orbitControlCss3d.enableZoom = false;
+    this.orbitControlCss3d.enablePan = false;
     this.orbitControlCss3d.target.set(0, 0, 0);
   }
 
