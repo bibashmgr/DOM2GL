@@ -3,12 +3,13 @@ import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 // src
 import Experience from './experience';
-export default class Container {
+export default class World {
   constructor() {
     this.experience = new Experience();
+    this.scene = this.experience.scene;
     this.sizes = this.experience.sizes;
     this.mouse = this.experience.mouse;
-    this.scene = this.experience.scene;
+    this.gui = this.experience.gui;
 
     // this.createPlane();
     this.setDomElement();
@@ -76,6 +77,9 @@ export default class Container {
 
     this.cssObj = new CSS3DObject(this.domElement);
     this.cssObj.position.y = 0;
+    this.gui
+      .add(this.cssObj.rotation, 'y', -Math.PI / 3, 0)
+      .name('Rotate Obj on Y-axis');
 
     this.scene.add(this.cssObj);
   }
@@ -101,8 +105,6 @@ export default class Container {
 
     let diff = this.mouse.rounded - this.mouse.posY;
     this.mouse.posY += Math.sign(diff) * Math.pow(Math.abs(diff), 0.25) * 0.008;
-
-    console.log(this.mouse.posY, this.mouse.rounded);
 
     this.cssObj.position.y = this.mouse.posY * this.sizes.height;
   }
