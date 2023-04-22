@@ -15,14 +15,13 @@ import World from './world.js';
 export default class Experience {
   static instance;
 
-  constructor(canvas, container) {
+  constructor(canvas) {
     if (Experience.instance) {
       return Experience.instance;
     }
 
     Experience.instance = this;
-    // this.canvas = canvas;
-    this.container = container;
+    this.canvas = canvas;
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xffffff);
     this.sizes = new Sizes();
